@@ -1,0 +1,29 @@
+[project]
+name = "textual-playground"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "naoking158", email = "naoki@bbo.cs.tsukuba.ac.jp" }
+]
+dependencies = [
+    "textual>=0.60.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+"textual-playground" = "textual_playground:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/textual_playground"]
