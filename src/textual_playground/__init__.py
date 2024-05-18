@@ -13,6 +13,14 @@ class TimeDisplay(Static):
 class Stopwatch(Static):
     """A stopwatch widget."""
 
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        """Event handler called when a button is pressed."""
+
+        if event.button.id == "start":
+            self.add_class("started")
+        elif event.button.id == "stop":
+            self.remove_class("started")
+
     def compose(self) -> ComposeResult:
         """Create child widgets of a stopwatch."""
         yield Button("Start", id="start", variant="success")
@@ -24,7 +32,7 @@ class Stopwatch(Static):
 class StopwatchApp(App):
     """A Textual app to manage stopwatches."""
 
-    CSS_PATH = os.path.join(HERE, "stopwatch03.tcss")
+    CSS_PATH = os.path.join(HERE, "stopwatch04.tcss")
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
     def compose(self) -> ComposeResult:
