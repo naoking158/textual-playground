@@ -9,7 +9,7 @@ dependencies = [
     "textual>=0.60.1",
 ]
 readme = "README.md"
-requires-python = ">= 3.8"
+requires-python = ">= 3.11,<3.12"
 
 [project.scripts]
 "textual-playground" = "textual_playground:main"
@@ -29,3 +29,13 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/textual_playground"]
+
+
+[tool.ruff]
+exclude = ["pyproject.toml"]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "C90"]
+ignore = ["E203"]
