@@ -1,6 +1,9 @@
 from textual.app import App, ComposeResult
 from textual.containers import ScrollableContainer
 from textual.widgets import Header, Footer, Button, Static
+import os
+
+HERE = os.path.dirname(__file__)
 
 
 class TimeDisplay(Static):
@@ -21,6 +24,7 @@ class Stopwatch(Static):
 class StopwatchApp(App):
     """A Textual app to manage stopwatches."""
 
+    CSS_PATH = os.path.join(HERE, "stopwatch03.tcss")
     BINDINGS = [("d", "toggle_dark", "Toggle dark mode")]
 
     def compose(self) -> ComposeResult:
